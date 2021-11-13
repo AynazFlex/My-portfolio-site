@@ -199,6 +199,9 @@ body {
 }
 
 @media screen and (max-width: 850px) {
+  .swiper {
+    display: block;
+  }
   .navbar {
     display: none;
   }
@@ -238,7 +241,6 @@ body {
 
 @media screen and (max-width: 600px) {
   .swiper {
-    display: block;
     width: 450px;
     height: 650px;
   }
