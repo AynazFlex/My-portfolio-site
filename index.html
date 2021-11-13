@@ -109,7 +109,46 @@
 			<h2 class="my-sur">Мои проекты и работы</h2>
 			<hr class="line"></hr>
 			<div class="my-projects">
-				<p>Тут будут мои проекты</p>
+				<div id="swiper" class="swiper">
+					<ul id="list" class="list">
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="abito.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Abito - сайт объявлений. Аналог интерфейса Авито, но
+									только
+									хуже.</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description" href="https://github.com/AynazFlex/abito">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="guns.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Guns - сайт про стрелковое оружие.
+									Мой первый учебный сайт</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description" href="https://github.com/AynazFlex/Guns">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="aliengame.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>AlienGAme -
+									2D игра по космической тематике</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description" href="https://github.com/AynazFlex/AlienGAme">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="notes.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Notes - браузерное приложение для заметок</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description" href="https://github.com/AynazFlex/notes">Ссылка проекта в github</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<h2 id="CONTACT" class="my-sur">Мои контакты и соц. сети</h2>
 			<hr class="line"></hr>
@@ -148,15 +187,6 @@
 	</div>
 	<div class="footer">
 	</div>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(function () {
-				$('a[href^="#"]').click(function () {
-					var target = $(this).attr('href');
-					$('html, body').animate({ scrollTop: $(target).offset().top }, 800);
-					return false;
-				});
-			});
-		</script>.
+	<script src="main.js"></script>
 </body>
 </html>
