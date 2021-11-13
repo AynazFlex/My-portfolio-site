@@ -1,12 +1,8 @@
 "use strict";
 
-const w = swiper.querySelector('.cart').offsetWidth;
-const W = list.offsetWidth;
-console.log(w);
-console.log(W);
-console.log(swiper);
-
 swiper.addEventListener('touchstart', (event) => {
+    const w = swiper.querySelector('.cart').offsetWidth;
+    const W = list.offsetWidth;
     list.style.transition = '0ms';
     let start = event.changedTouches[0].clientX;
     let x;
