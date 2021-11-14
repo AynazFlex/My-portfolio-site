@@ -13,7 +13,7 @@ swiper.addEventListener('touchstart', (event) => {
         list.style.left = shiftX + x + 'px';
     }
 
-    swiper.addEventListener('touchmove', move);
+    document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
         list.style.transition = '';
@@ -22,7 +22,7 @@ swiper.addEventListener('touchstart', (event) => {
         if(x < -50) list.style.left = -w + shiftX + 'px';
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
-        swiper.removeEventListener('touchmove', move);
+        document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
 })
