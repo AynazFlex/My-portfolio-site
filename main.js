@@ -26,3 +26,50 @@ swiper.addEventListener('touchstart', (event) => {
         swiper.ontouchend = null;
     }
 })
+
+toLeft.onclick = () => {
+    const w1 = swiper.querySelector('.cart').offsetWidth;
+    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    if(shiftX < 0) {
+        list.style.left = shiftX + w1 + 'px';
+    }
+}
+
+toRight.onclick = () => {
+    const W2 = list.offsetWidth;
+    const w2 = swiper.querySelector('.cart').offsetWidth;
+    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    if(shiftX > -(W2-w2)) {
+        list.style.left = shiftX - w2 + 'px';
+    }
+}
+
+swiper.addEventListener('mousedown', (event) => {
+    const w3 = swiper.querySelector('.cart').offsetWidth;
+    const W3 = list.offsetWidth;
+    list.style.transition = '0ms';
+    let start = event.clientX;
+    let x;
+    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    
+    function mouseMove(event) {
+        x = event.clientX - start;
+        list.style.left = shiftX + x + 'px';
+    }
+
+    document.addEventListener('mousemove', mouseMove);
+
+    swiper.onmouseup = () => {
+        list.style.transition = '';
+        if(x > 50) list.style.left = w3 + shiftX + 'px';
+        if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
+        if(x < -50) list.style.left = -w3 + shiftX + 'px';
+        if(parseInt(list.style.left) > 0) list.style.left = w3-W3 + 'px';
+        if(parseInt(list.style.left) < w3-W3) list.style.left = '0px';
+        document.removeEventListener('mousemove', mouseMove);
+        swiper.onmouseups = null;
+    }
+    swiper.ondragstart = function() {
+        return false;
+    };
+})

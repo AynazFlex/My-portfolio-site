@@ -127,9 +127,21 @@ body {
   width: 30%;
 }
 .my-projects {
+  display: flex;
+  justify-content: center;
   color: #757575;
   line-height: 1.7;
   word-spacing: 4px;
+}
+.swiper-button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  cursor: pointer;
+}
+.swiper-button:hover {
+  box-shadow: 2px 2px 25px -2px #757575;
 }
 .my-cont {
   width: 100%;
@@ -240,9 +252,14 @@ body {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .swiper-button {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .swiper {
-    display: block;
     width: 450px;
     height: 650px;
   }
