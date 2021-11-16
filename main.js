@@ -9,7 +9,7 @@ swiper.addEventListener('touchstart', (event) => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
     function move(event) {
-        if(abs(event.changedTouches[0].clientX - start)) {
+        if(Math.abs(event.changedTouches[0].clientX - start)) {
             document.body.style.overflow = "hidden";
         }
         x = event.changedTouches[0].clientX - start;
