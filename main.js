@@ -9,9 +9,6 @@ swiper.addEventListener('touchstart', (event) => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
     function move(event) {
-        if(Math.abs(event.changedTouches[0].clientX - start)) {
-            document.body.style.overflow = "hidden";
-        }
         x = event.changedTouches[0].clientX - start;
         list.style.left = shiftX + x + 'px';
     }
@@ -19,7 +16,6 @@ swiper.addEventListener('touchstart', (event) => {
     document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
-        document.body.style.overflow = "";
         list.style.transition = '';
         if(x > 50) list.style.left = w + shiftX + 'px';
         if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
