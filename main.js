@@ -9,11 +9,11 @@ swiper.addEventListener('touchstart', (event) => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
     function move(event) {
-        if(event.changedTouches[0].clientX - start) {
+        if(abs(event.changedTouches[0].clientX - start)) {
             document.body.style.overflow = "hidden";
+            x = event.changedTouches[0].clientX - start;
+            list.style.left = shiftX + x + 'px';
         }
-        x = event.changedTouches[0].clientX - start;
-        list.style.left = shiftX + x + 'px';
     }
 
     document.addEventListener('touchmove', move);
