@@ -1,5 +1,14 @@
 "use strict";
 
+let k = 0;
+
+window.addEventListener('resize',function(){
+    const w = swiper.querySelector('.cart').offsetWidth;
+    list.style.left = w*k + 'px';
+});
+
+
+window.onload = () => {
 swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
@@ -22,6 +31,7 @@ swiper.addEventListener('touchstart', (event) => {
         if(x < -50) list.style.left = -w + shiftX + 'px';
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
+        k = parseInt(list.style.left)/w;
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
@@ -32,6 +42,7 @@ toLeft.onclick = () => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     if(shiftX < 0) {
         list.style.left = shiftX + w1 + 'px';
+        k = parseInt(list.style.left)/w1;
     }
 }
 
@@ -41,6 +52,7 @@ toRight.onclick = () => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     if(shiftX > -(W2-w2)) {
         list.style.left = shiftX - w2 + 'px';
+        k = parseInt(list.style.left)/w2;
     }
 }
 
@@ -66,6 +78,7 @@ swiper.addEventListener('mousedown', (event) => {
         if(x < -50) list.style.left = -w3 + shiftX + 'px';
         if(parseInt(list.style.left) > 0) list.style.left = w3-W3 + 'px';
         if(parseInt(list.style.left) < w3-W3) list.style.left = '0px';
+        k = parseInt(list.style.left)/w3;
         document.removeEventListener('mousemove', mouseMove);
         swiper.onmouseups = null;
     }
@@ -73,3 +86,4 @@ swiper.addEventListener('mousedown', (event) => {
         return false;
     };
 })
+}
