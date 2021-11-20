@@ -19,7 +19,7 @@ swiper.addEventListener('touchstart', (event) => {
     
     function move(event) {
         x = event.changedTouches[0].clientX - start;
-        if(Math.abs(x) > 5) document.body.style.overflow = 'hidden';
+        if(Math.abs(x) > 10) document.body.style.overflow = 'hidden';
         list.style.left = shiftX + x + 'px';
     }
 
