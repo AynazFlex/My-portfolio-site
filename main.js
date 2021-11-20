@@ -56,6 +56,10 @@ toRight.onclick = () => {
         list.style.left = shiftX - w2 + 'px';
         k = parseInt(list.style.left)/w2;
     }
+    if(shiftX <= -(W2-w2)) {
+        list.style.left = -W2 + w2 + 'px';
+        k = parseInt(list.style.left)/w2;
+    }
 }
 
 swiper.addEventListener('mousedown', (event) => {
