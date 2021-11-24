@@ -127,21 +127,33 @@ body {
   width: 30%;
 }
 .my-projects {
-  display: flex;
-  justify-content: center;
   color: #757575;
   line-height: 1.7;
   word-spacing: 4px;
 }
-.swiper-button {
-  display: block;
-  width: 50px;
-  height: 50px;
-  align-self: center;
+.swiper-button-right {
+  position: absolute;
+  top: calc(50% - 16px);
+  right: 5px;
+  background-color: rgb(159, 151, 151);
+  border-radius: 100%;
+  color: black;
   cursor: pointer;
 }
-.swiper-button:hover {
-  box-shadow: 2px 2px 25px -2px #757575;
+.swiper-button-left {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: 5px;
+  background-color: rgb(159, 151, 151);
+  border-radius: 100%;
+  cursor: pointer;
+}
+.swiper-button-left:hover,
+.swiper-button-right:hover {
+  box-shadow: 2px 2px 25px -2px #000000;
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px);
 }
 .my-cont {
   width: 100%;
@@ -182,9 +194,11 @@ body {
   position: relative;
   width: 500px;
   height: 700px;
+  margin: auto;
   overflow: hidden;
   box-shadow: 2px 2px 25px -2px #757575;
   border-radius: 10px;
+  touch-action: none;
 }
 .list {
   position: absolute;
@@ -248,12 +262,6 @@ body {
   }
   .hor-icon-name {
     margin: 0;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .swiper-button {
-    display: none;
   }
 }
 
