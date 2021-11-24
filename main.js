@@ -19,7 +19,6 @@ swiper.addEventListener('touchstart', (event) => {
     
     function move(event) {
         x = event.changedTouches[0].clientX - start;
-        if(Math.abs(x) > 20) document.body.style.overflow = 'hidden';
         list.style.left = shiftX + x + 'px';
     }
 
@@ -33,7 +32,6 @@ swiper.addEventListener('touchstart', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
         k = parseInt(list.style.left)/w;
-        document.body.style.overflow = '';
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
