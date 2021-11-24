@@ -2,7 +2,7 @@
 
 let k = 0;
 
-window.addEventListener('resize',function(){
+window.addEventListener('resize', function(){
     const w = swiper.querySelector('.cart').offsetWidth;
     list.style.left = w*k + 'px';
 });
