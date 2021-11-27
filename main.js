@@ -38,27 +38,29 @@ swiper.addEventListener('touchstart', (event) => {
 })
 
 toLeft.onclick = () => {
+    toRight.style.display = '';
     const w1 = swiper.querySelector('.cart').offsetWidth;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     if(shiftX < 0) {
         list.style.left = shiftX + w1 + 'px';
         k = parseInt(list.style.left)/w1;
-    } else {
-        list.style.left = 0 + 'px';
-        k = parseInt(list.style.left)/w1;
+    }
+    if(k == 0) {
+        toLeft.style.display = 'none';
     }
 }
 
 toRight.onclick = () => {
+    toLeft.style.display = '';
     const W2 = list.offsetWidth;
     const w2 = swiper.querySelector('.cart').offsetWidth;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     if(shiftX > -(W2-w2)) {
         list.style.left = shiftX - w2 + 'px';
         k = parseInt(list.style.left)/w2;
-    } else {
-        list.style.left = -W2 + w2 + 'px';
-        k = parseInt(list.style.left)/w2;
+    }
+    if(k == -3) {
+        toRight.style.display = 'none';
     }
 }
 
