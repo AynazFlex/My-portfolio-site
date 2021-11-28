@@ -32,6 +32,12 @@ swiper.addEventListener('touchstart', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
         k = parseInt(list.style.left)/w;
+        if(k == -3) {
+            toRight.style.display = 'none';
+        } else toRight.style.display = '';
+        if(k == 0) {
+            toLeft.style.display = 'none';
+        } else toLeft.style.display = '';
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
@@ -87,6 +93,12 @@ swiper.addEventListener('mousedown', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w3-W3 + 'px';
         if(parseInt(list.style.left) < w3-W3) list.style.left = '0px';
         k = parseInt(list.style.left)/w3;
+        if(k == -3) {
+            toRight.style.display = 'none';
+        } else toRight.style.display = '';
+        if(k == 0) {
+            toLeft.style.display = 'none';
+        } else toLeft.style.display = '';
         document.removeEventListener('mousemove', mouseMove);
         swiper.onmouseups = null;
     }
