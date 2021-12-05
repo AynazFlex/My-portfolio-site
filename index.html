@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script defer src="main.js"></script>
+	<title>Мое портфолио сайт</title>
+</head>
+<body>
+	<div class="navbar-hor">
+		<ul class="navbar-hor-menu">
+			<li class="hor-links">
+				<a href="#home" class="hor-link">
+					<p class="hor-icon-name">ГЛАВНАЯ</p>
+				</a>
+			</li>
+			<li class="hor-links">
+				<a href="#aboutme" class="hor-link">
+					<p class="hor-icon-name">ОБО МНЕ</p>
+				</a>
+			</li>
+			<li class="hor-links">
+				<a href="#SKILLS" class="hor-link">
+					<p class="hor-icon-name">SKILLS</p>
+				</a>
+			</li>
+			<li class="hor-links">
+				<a href="#CONTACT" class="hor-link">
+					<p class="hor-icon-name">КОНТАКТЫ</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="navbar">
+		<img class="my-photo" src="img/mi.jpg" alt="I am in photo"></img>
+		<ul class="navbar-menu">
+			<li class="links">
+				<a href="#home" class="link">
+					<i class="fa fa-home" style="font-size:50px;color:white;margin:10px;"></i>
+					<p class="icon-name">ГЛАВНАЯ</p>
+				</a>
+			</li>
+			<li class="links">
+				<a href="#aboutme" class="link">
+					<i class="fa fa-user " style="font-size:50px;color:white;margin:10px;"></i>
+					<p class="icon-name">ОБО МНЕ</p>
+				</a>
+			</li>
+			<li class="links">
+				<a href="#SKILLS" class="link">
+					<i class="fa fa-graduation-cap" style="font-size:50px;color:white;margin:10px;"></i>
+					<p class="icon-name">SKILLS</p>
+				</a>
+			</li>
+			<li class="links">
+				<a href="#CONTACT" class="link">
+					<i class="fa fa-envelope-square" style="font-size:50px;color:white;margin:10px;"></i>
+					<p class="icon-name">КОНТАКТЫ</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="header">
+		<div class="main-info">
+			<h1 id="home" class="My-name">Давлетшин Айназ</h1>
+			<p class="my-spec">FRONTEND DEVELOPER</p>
+			<img src="img/mi.jpg" class="photo" alt="I am Joker"></img>
+		</div>
+		<div class="about-me">
+			<h2 id="aboutme" class="my-sur">Давлетшин</h2>
+			<hr class="line"></hr>
+			<p class="info-about-me">
+				Я, Давлетшин Айназ Ханифович. Учусь на 4 курсе РТУ МИРЭА по направлению электроника и наноэлектроника. Программированием
+				интересовался еще в школе. В основном решал задачи по алгоритмам. Также участвовал в олимпиадах по математике, по физике и по программированию,
+				На региональном уровне пару раз занимал призовые места, но на всероссийских олимпиадах не занимал высокие места, так как готовился самостоятельно.
+				После школы в университете перестал заниматься программированием, так как специальность этого не требовала. Но все же я понял, что программирование - это та 
+				облясть деятельности которая мне интересна и в которой я хочу построить карьеру. Я из всех IT специальностей выбрал frontend, потому что сейчас web технологии
+				все больше интегрируются в быт людей и так же frontend дает широкое понимание всего цикла web разработки так как frontend-разработчик взаимодействует с web-дизайном и с backend'ом.
+				И еще если что можно перейти в мобильную разработку на React native.(Это я так думаю). Регулярно начал заниматься frontend'ом с сентября 2021 года.
+			</p>
+			<h3 id="SKILLS" class="my-skills">Мои знания</h3>
+			<div class="block-slill">
+				<i class="fab fa-html5 fa-fw" style="font-size:50px;color:red"></i>
+				<p class="frontend-skills">HTML</p>
+			</div>
+			<div class="line-skills">
+				<div class="html-skill"></div>
+			</div>
+			<div class="block-slill">
+				<i class="fab fa-css3 fa-fw" style="font-size:50px;color:blue"></i>
+				<p class="frontend-skills">CSS</p>
+			</div>
+			<div class="line-skills">
+				<div class="css-skill"></div>
+			</div>
+			<div class="block-slill">
+				<i class="fab fa-js fa-fw" style="font-size:50px;color:yellow;"></i>
+				<p class="frontend-skills">JavaScript</p>
+			</div>
+			<div class="line-skills">
+				<div class="js-skill"></div>
+			</div>
+			<div class="block-slill">
+				<i class='fab fa-react fa-fw' style='font-size:50px;color:lightblue;'></i>
+				<p class="frontend-skills">React</p>
+			</div>
+			<div class="line-skills">
+				<div class="react-skill"></div>
+			</div>
+			<h2 class="my-sur">Мои проекты и работы</h2>
+			<hr class="line"></hr>
+			<div class="my-projects">
+				<div id="swiper" class="swiper">
+					<ul id="list" class="list">
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="abito.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Abito - сайт объявлений. Аналог интерфейса Авито, но
+									только
+									хуже.</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description cart_link" href="https://github.com/AynazFlex/abito">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="guns.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Guns - сайт про стрелковое оружие.
+									Мой первый учебный сайт</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description cart_link" href="https://github.com/AynazFlex/Guns">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="aliengame.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>AlienGAme -
+									2D игра по космической тематике. Только для сенсорных устройств.</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description cart_link" href="https://github.com/AynazFlex/AlienGAme">Ссылка проекта в github</a>
+							</div>
+						</li>
+						<li>
+							<div class="cart">
+								<img class="cart_img" src="notes.PNG">
+								<p class="cart_description"><strong>Описание: </strong><br>Notes - браузерное приложение для заметок. Только для сенсорных устройств.</p>
+								<p class="cart_description"><strong>Стек технологий: </strong><br>HTML, CSS, JavaScript</p>
+								<a class="cart_description cart_link" href="https://github.com/AynazFlex/notes">Ссылка проекта в github</a>
+							</div>
+						</li>
+					</ul>
+					<img id="toLeft" src="left.png" style="display:none" class="swiper-button-left">
+					<img id="toRight" src="right.png" class="swiper-button-right">
+				</div>
+			</div>
+			<h2 id="CONTACT" class="my-sur">Мои контакты и соц. сети</h2>
+			<hr class="line"></hr>
+			<div class="my-cont">
+				<div class="my-location">
+					<p class="info-cont">
+						<i class="fa fa-map-marker fa-fw" style="font-size:30px;color:white;margin-right:20px;"></i> Москва, Россия
+					</p>
+				</div>
+				<div class="my-location">
+					<p class="info-cont">
+						<i class="fa fa-phone fa-fw" style="font-size:30px;color:white;margin-right:20px;"></i> Телефон: +7(977)18-70-773
+					</p>
+				</div>
+				<div class="my-location">
+					<p class="info-cont">
+						<i class="fa fa-envelope fa-fw" style="font-size:30px;color:white;margin-right:20px;"></i> Почта: jkz1713x2@gmail.com
+					</p>
+				</div>
+				<div class="mess">
+					<a href="https://www.instagram.com" target="_blank" class="mess-link">
+						<i class="fab fa-instagram fa-fw"></i>
+					</a>
+					<a href="https://vk.com/" target="_blank" class="mess-link">
+						<i class="fab fa-vk fa-fw"></i>
+					</a>
+					<a href="https://www.facebook.com/" target="_blank" class="mess-link">
+						<i class="fab fa-facebook fa-fw"></i>
+					</a>
+					<a href="https://www.whatsapp.com/" target="_blank" class="mess-link">
+						<i class="fab fa-whatsapp fa-fw"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	</div>
+</body>
+</html>
