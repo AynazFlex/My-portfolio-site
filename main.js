@@ -32,7 +32,7 @@ swiper.addEventListener('touchstart', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
         k = parseInt(list.style.left)/w;
-        if(k == -3) {
+        if(k == -4) {
             toRight.style.display = 'none';
         } else toRight.style.display = '';
         if(k == 0) {
@@ -65,7 +65,7 @@ toRight.onclick = () => {
         list.style.left = shiftX - w2 + 'px';
         k = parseInt(list.style.left)/w2;
     }
-    if(k == -3) {
+    if(k == -4) {
         toRight.style.display = 'none';
     }
 }
@@ -93,7 +93,7 @@ swiper.addEventListener('mousedown', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w3-W3 + 'px';
         if(parseInt(list.style.left) < w3-W3) list.style.left = '0px';
         k = parseInt(list.style.left)/w3;
-        if(k == -3) {
+        if(k == -4) {
             toRight.style.display = 'none';
         } else toRight.style.display = '';
         if(k == 0) {
