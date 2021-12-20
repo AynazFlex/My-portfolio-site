@@ -14,6 +14,7 @@ window.onload = () => {
     window.onscroll = () => {
         list.style.left = w*k + 'px';
         document.removeEventListener('touchmove', move);
+        swiper.ontouchend = null;
     }
 swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
