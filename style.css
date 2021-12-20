@@ -83,9 +83,10 @@ body {
 }
 .info-about-me {
   text-align: justify;
+  text-indent: 1.5em;
   color: #757575;
   line-height: 1.7;
-  word-spacing: 4px;
+  word-spacing: 0.8px;
 }
 .my-skills {
   margin: 40px 0;
