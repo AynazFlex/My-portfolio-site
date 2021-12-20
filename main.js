@@ -1,14 +1,20 @@
 "use strict";
 
 let k = 0;
+let carts = -document.body.querySelectorAll('.cart').length + 1;
+const w = swiper.querySelector('.cart').offsetWidth;
 
 window.addEventListener('resize', function(){
-    const w = swiper.querySelector('.cart').offsetWidth;
     list.style.left = w*k + 'px';
 });
 
 
 window.onload = () => {
+    let move;
+    window.onscroll = () => {
+        list.style.left = w*k + 'px';
+        document.removeEventListener('touchmove', move);
+    }
 swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
@@ -17,7 +23,7 @@ swiper.addEventListener('touchstart', (event) => {
     let x;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
-    function move(event) {
+    move = function(event) {
         x = event.changedTouches[0].clientX - start;
         list.style.left = shiftX + x + 'px';
     }
@@ -32,7 +38,7 @@ swiper.addEventListener('touchstart', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
         if(parseInt(list.style.left) < w-W) list.style.left = '0px';
         k = parseInt(list.style.left)/w;
-        if(k == -4) {
+        if(k == carts) {
             toRight.style.display = 'none';
         } else toRight.style.display = '';
         if(k == 0) {
@@ -65,7 +71,7 @@ toRight.onclick = () => {
         list.style.left = shiftX - w2 + 'px';
         k = parseInt(list.style.left)/w2;
     }
-    if(k == -4) {
+    if(k == carts) {
         toRight.style.display = 'none';
     }
 }
@@ -93,7 +99,7 @@ swiper.addEventListener('mousedown', (event) => {
         if(parseInt(list.style.left) > 0) list.style.left = w3-W3 + 'px';
         if(parseInt(list.style.left) < w3-W3) list.style.left = '0px';
         k = parseInt(list.style.left)/w3;
-        if(k == -4) {
+        if(k == carts) {
             toRight.style.display = 'none';
         } else toRight.style.display = '';
         if(k == 0) {
