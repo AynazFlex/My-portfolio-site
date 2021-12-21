@@ -2,9 +2,10 @@
 
 let k = 0;
 let carts = -document.body.querySelectorAll('.cart').length + 1;
-const w = swiper.querySelector('.cart').offsetWidth;
+let w = swiper.querySelector('.cart').offsetWidth;
 
 window.addEventListener('resize', function(){
+    w = swiper.querySelector('.cart').offsetWidth;
     list.style.left = w*k + 'px';
 });
 
