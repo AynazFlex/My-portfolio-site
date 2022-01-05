@@ -12,7 +12,7 @@ window.addEventListener('resize', function(){
 
 window.onload = () => {
     let move;
-    window.onscroll = () => {
+    document.body.onscroll = () => {
         list.style.left = w*k + 'px';
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
