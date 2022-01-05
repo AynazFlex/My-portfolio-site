@@ -17,21 +17,24 @@ window.onload = () => {
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
-swiper.addEventListener('touchstart', (event) => {
+    swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
     list.style.transition = '0ms';
-    let start = event.changedTouches[0].clientX;
+    let startX = event.changedTouches[0].clientX;
+    let startY = event.changedTouches[0].clientY;
     let x;
+    let y;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
     move = function(event) {
-        x = event.changedTouches[0].clientX - start;
-        if(x) document.body.style.overflow = 'hidden';
-        list.style.left = shiftX + x + 'px';
+        x = event.changedTouches[0].clientX - startX;
+        y = event.changedTouches[0].clientY - startY;
+        if(Math.abs(y) <= Math.abs(x)) {
+            document.body.style.overflow = 'hidden';
+            list.style.left = shiftX + x + 'px';
+        }
     }
-
-    document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
         list.style.transition = '';
@@ -49,8 +52,9 @@ swiper.addEventListener('touchstart', (event) => {
         } else toLeft.style.display = '';
         document.removeEventListener('touchmove', move);
         document.body.style.overflow = '';
-        swiper.ontouchend = null;
     }
+
+    document.addEventListener('touchmove', move);
 })
 
 toLeft.onclick = () => {
