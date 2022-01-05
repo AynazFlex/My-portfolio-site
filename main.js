@@ -12,11 +12,6 @@ window.addEventListener('resize', function(){
 
 window.onload = () => {
     let move;
-    window.onscroll = () => {
-        list.style.left = w*k + 'px';
-        document.removeEventListener('touchmove', move);
-        swiper.ontouchend = null;
-    }
     swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
@@ -26,16 +21,23 @@ window.onload = () => {
     let x;
     let y;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    let flag = true;
     
     move = function(event) {
         x = event.changedTouches[0].clientX - startX;
         y = event.changedTouches[0].clientY - startY;
-        if(Math.abs(y) <= Math.abs(x)) {
+        if(Math.abs(y) <= Math.abs(x) && flag) {
             document.body.style.overflow = 'hidden';
-            list.style.left = shiftX + x + 'px';
+            flag = false;
         }
+        if(Math.abs(y) > Math.abs(x) && flag) {
+            flag = false;
+            document.removeEventListener('touchmove', move);
+            swiper.ontouchend = null;
+        }
+        list.style.left = shiftX + x + 'px';
     }
-        
+
     document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
