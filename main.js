@@ -12,6 +12,11 @@ window.addEventListener('resize', function(){
 
 window.onload = () => {
     let move;
+    window.onscroll = () => {
+        list.style.left = w*k + 'px';
+        document.removeEventListener('touchmove', move);
+        swiper.ontouchend = null;
+    }
     swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
@@ -30,12 +35,7 @@ window.onload = () => {
             document.body.style.overflow = 'hidden';
             flag = false;
         }
-        if(Math.abs(y) > Math.abs(x) && flag) {
-            flag = false;
-            document.removeEventListener('touchmove', move);
-            swiper.ontouchend = null;
-        }
-        list.style.left = shiftX + x + 'px';
+        if(!flag) list.style.left = shiftX + x + 'px';
     }
 
     document.addEventListener('touchmove', move);
