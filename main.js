@@ -35,6 +35,8 @@ window.onload = () => {
             list.style.left = shiftX + x + 'px';
         }
     }
+        
+    document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
         list.style.transition = '';
@@ -53,8 +55,6 @@ window.onload = () => {
         document.removeEventListener('touchmove', move);
         document.body.style.overflow = '';
     }
-
-    document.addEventListener('touchmove', move);
 })
 
 toLeft.onclick = () => {
