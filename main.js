@@ -11,12 +11,6 @@ window.addEventListener('resize', function(){
 
 
 window.onload = () => {
-    let move;
-    document.body.onscroll = () => {
-        list.style.left = w*k + 'px';
-        document.removeEventListener('touchmove', move);
-        swiper.ontouchend = null;
-    }
     swiper.addEventListener('touchstart', (event) => {
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
@@ -27,18 +21,6 @@ window.onload = () => {
     let y;
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     let flag = true;
-    
-    move = function(event) {
-        x = event.changedTouches[0].clientX - startX;
-        y = event.changedTouches[0].clientY - startY;
-        if(Math.abs(y) <= Math.abs(x) && flag) {
-            document.body.style.overflow = 'hidden';
-            flag = false;
-        }
-        if(!flag) list.style.left = shiftX + x + 'px';
-    }
-
-    document.addEventListener('touchmove', move);
 
     swiper.ontouchend = () => {
         list.style.transition = '';
@@ -57,6 +39,22 @@ window.onload = () => {
         document.removeEventListener('touchmove', move);
         document.body.style.overflow = '';
     }
+    
+    function move(event) {
+        x = event.changedTouches[0].clientX - startX;
+        y = event.changedTouches[0].clientY - startY;
+        if(Math.abs(y) <= Math.abs(x) && flag) {
+            document.body.style.overflow = 'hidden';
+            flag = false;
+        }
+        if(Math.abs(y) > Math.abs(x) && flag) {
+            document.removeEventListener('touchmove', move);
+            swiper.ontouchend = null;
+        }
+        if(!flag) list.style.left = shiftX + x + 'px';
+    }
+
+    document.addEventListener('touchmove', move);
 })
 
 toLeft.onclick = () => {
