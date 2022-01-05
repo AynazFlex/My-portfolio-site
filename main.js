@@ -17,7 +17,9 @@ window.onload = () => {
         document.removeEventListener('touchmove', move);
         swiper.ontouchend = null;
     }
-swiper.addEventListener('touchstart', (event) => {
+document.addEventListener('touchstart', (event) => {
+    event.stopPropagation();
+    if(!event.target.closest('.swiper')) return;
     const w = swiper.querySelector('.cart').offsetWidth;
     const W = list.offsetWidth;
     list.style.transition = '0ms';
@@ -26,13 +28,14 @@ swiper.addEventListener('touchstart', (event) => {
     let shiftX = list.style.left ? parseInt(list.style.left) : 0;
     
     move = function(event) {
+        event.stopPropagation();
         x = event.changedTouches[0].clientX - start;
         list.style.left = shiftX + x + 'px';
     }
 
     document.addEventListener('touchmove', move);
 
-    swiper.ontouchend = () => {
+    document.ontouchend = () => {
         list.style.transition = '';
         if(x > 50) list.style.left = w + shiftX + 'px';
         if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
@@ -47,7 +50,7 @@ swiper.addEventListener('touchstart', (event) => {
             toLeft.style.display = 'none';
         } else toLeft.style.display = '';
         document.removeEventListener('touchmove', move);
-        swiper.ontouchend = null;
+        document.ontouchend = null;
     }
 })
 
