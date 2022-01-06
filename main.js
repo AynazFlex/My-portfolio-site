@@ -12,50 +12,51 @@ window.addEventListener('resize', function(){
 
 window.onload = () => {
     swiper.addEventListener('touchstart', (event) => {
-    const w = swiper.querySelector('.cart').offsetWidth;
-    const W = list.offsetWidth;
-    list.style.transition = '0ms';
-    let startX = event.changedTouches[0].clientX;
-    let startY = event.changedTouches[0].clientY;
-    let x;
-    let y;
-    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
-    let flag = true;
+        const w = swiper.querySelector('.cart').offsetWidth;
+        const W = list.offsetWidth;
+        list.style.transition = '0ms';
+        let startX = event.changedTouches[0].clientX;
+        let startY = event.changedTouches[0].clientY;
+        let x;
+        let y;
+        let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+        let flag = true;
 
-    swiper.ontouchend = () => {
-        list.style.transition = '';
-        if(x > 50) list.style.left = w + shiftX + 'px';
-        if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
-        if(x < -50) list.style.left = -w + shiftX + 'px';
-        if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
-        if(parseInt(list.style.left) < w-W) list.style.left = '0px';
-        k = parseInt(list.style.left)/w;
-        if(k == carts) {
-            toRight.style.display = 'none';
-        } else toRight.style.display = '';
-        if(k == 0) {
-            toLeft.style.display = 'none';
-        } else toLeft.style.display = '';
-        document.removeEventListener('touchmove', move);
-        document.body.style.overflow = '';
-    }
-    
-    function move(event) {
-        x = event.changedTouches[0].clientX - startX;
-        y = event.changedTouches[0].clientY - startY;
-        if(Math.abs(y) <= Math.abs(x) && flag) {
-            document.body.style.overflow = 'hidden';
-            flag = false;
-        }
-        if(Math.abs(y) > Math.abs(x) && flag) {
-            document.removeEventListener('touchmove', move);
-            swiper.ontouchend = null;
-        }
-        if(!flag) list.style.left = shiftX + x + 'px';
-    }
+        document.ontouchmove = (event) => {
+            x = event.changedTouches[0].clientX - startX;
+            y = event.changedTouches[0].clientY - startY;
+            if(Math.abs(y) <= Math.abs(x) && flag) {
+                document.body.style.overflow = 'hidden';
+                flag = false;
+                console.log(x, y);
+            }
+            if(Math.abs(y) > Math.abs(x) && flag) {
+                document.ontouchmove = null;
+                swiper.ontouchend = null;
+                console.log(x, y);
+                return;
+            }
+            list.style.left = shiftX + x + 'px';
+        };
 
-    document.addEventListener('touchmove', move);
-})
+        swiper.ontouchend = () => {
+            list.style.transition = '';
+            if(x > 50) list.style.left = w + shiftX + 'px';
+            if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
+            if(x < -50) list.style.left = -w + shiftX + 'px';
+            if(parseInt(list.style.left) > 0) list.style.left = w-W + 'px';
+            if(parseInt(list.style.left) < w-W) list.style.left = '0px';
+            k = parseInt(list.style.left)/w;
+            if(k == carts) {
+                toRight.style.display = 'none';
+            } else toRight.style.display = '';
+            if(k == 0) {
+                toLeft.style.display = 'none';
+            } else toLeft.style.display = '';
+            document.ontouchmove = null;
+            document.body.style.overflow = '';
+        }
+    })
 
 toLeft.onclick = () => {
     toRight.style.display = '';
