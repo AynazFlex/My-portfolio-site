@@ -28,18 +28,17 @@ window.onload = () => {
             if(Math.abs(y) <= Math.abs(x) && flag) {
                 document.body.style.overflow = 'hidden';
                 flag = false;
-                console.log(x, y);
             }
             if(Math.abs(y) > Math.abs(x) && flag) {
                 document.ontouchmove = null;
                 swiper.ontouchend = null;
-                console.log(x, y);
                 return;
             }
             list.style.left = shiftX + x + 'px';
         };
 
         swiper.ontouchend = () => {
+            alert();
             list.style.transition = '';
             if(x > 50) list.style.left = w + shiftX + 'px';
             if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
