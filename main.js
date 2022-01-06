@@ -38,7 +38,6 @@ window.onload = () => {
         };
 
         swiper.ontouchend = () => {
-            alert();
             list.style.transition = '';
             if(x > 50) list.style.left = w + shiftX + 'px';
             if(x <= 50 && x >= -50) list.style.left = shiftX + 'px';
