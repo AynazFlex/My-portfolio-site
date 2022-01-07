@@ -136,18 +136,21 @@ body {
   position: absolute;
   top: calc(50% - 16px);
   right: 5px;
-  background-color: rgb(159, 151, 151);
   border-radius: 100%;
   color: black;
+  background-color: rgba(128, 128, 128, 0.5);
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .swiper-button-left {
   position: absolute;
   top: calc(50% - 16px);
   left: 5px;
-  background-color: rgb(159, 151, 151);
   border-radius: 100%;
+  color: black;
+  background-color: rgba(128, 128, 128, 0.5);
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .my-cont {
   width: 100%;
@@ -190,8 +193,10 @@ body {
   height: 700px;
   margin: auto;
   overflow: hidden;
-  box-shadow: 2px 2px 25px -2px #757575;
-  border-radius: 10px;
+  cursor: grab;
+}
+.swiper:active {
+  cursor: grabbing;
 }
 .list {
   position: absolute;
