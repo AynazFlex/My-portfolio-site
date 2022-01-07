@@ -11,9 +11,9 @@ window.addEventListener('resize', function(){
 
 
 window.onload = () => {
-    const w = swiper.querySelector('.cart').offsetWidth;
-    const W = list.offsetWidth;
     swiper.addEventListener('touchstart', (event) => {
+        const w = swiper.querySelector('.cart').offsetWidth;
+        const W = list.offsetWidth;
         list.style.transition = '0ms';
         let startX = event.changedTouches[0].clientX;
         let startY = event.changedTouches[0].clientY;
