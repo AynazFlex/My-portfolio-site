@@ -11,30 +11,31 @@ window.addEventListener('resize', function(){
 
 
 window.onload = () => {
+    const w = swiper.querySelector('.cart').offsetWidth;
+    const W = list.offsetWidth;
     swiper.addEventListener('touchstart', (event) => {
-        const w = swiper.querySelector('.cart').offsetWidth;
-        const W = list.offsetWidth;
         list.style.transition = '0ms';
         let startX = event.changedTouches[0].clientX;
         let startY = event.changedTouches[0].clientY;
         let x;
         let y;
         let shiftX = list.style.left ? parseInt(list.style.left) : 0;
-        let flag = true;
 
         document.ontouchmove = (event) => {
             x = event.changedTouches[0].clientX - startX;
             y = event.changedTouches[0].clientY - startY;
-            if(Math.abs(y) <= Math.abs(x) && flag) {
+            if(Math.abs(y) <= Math.abs(x)) {
                 window.addEventListener('touchmove', preventdefault, { passive: false})
-                flag = false;
-            }
-            if(Math.abs(y) > Math.abs(x) && flag) {
+                startX = event.changedTouches[0].clientX;
+                document.ontouchmove = (event) => {
+                    x = event.changedTouches[0].clientX - startX;
+                    list.style.left = shiftX + x + 'px';
+                }
+            } else {
                 document.ontouchmove = null;
                 swiper.ontouchend = null;
                 return;
             }
-            list.style.left = shiftX + x + 'px';
         };
 
         swiper.ontouchend = () => {
