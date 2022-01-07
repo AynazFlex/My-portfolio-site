@@ -2,10 +2,9 @@
 
 let k = 0;
 let carts = -document.body.querySelectorAll('.cart').length + 1;
-let w = swiper.querySelector('.cart').offsetWidth;
 
 window.addEventListener('resize', function(){
-    w = swiper.querySelector('.cart').offsetWidth;
+    let w = swiper.querySelector('.cart').offsetWidth;
     list.style.left = w*k + 'px';
 });
 
@@ -114,7 +113,7 @@ swiper.addEventListener('mousedown', (event) => {
             toLeft.style.display = 'none';
         } else toLeft.style.display = '';
         document.removeEventListener('mousemove', mouseMove);
-        swiper.onmouseups = null;
+        swiper.onmouseup = null;
     }
     swiper.ondragstart = function() {
         return false;
