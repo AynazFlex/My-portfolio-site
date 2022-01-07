@@ -26,7 +26,7 @@ window.onload = () => {
             x = event.changedTouches[0].clientX - startX;
             y = event.changedTouches[0].clientY - startY;
             if(Math.abs(y) <= Math.abs(x) && flag) {
-                document.body.style.overflow = 'hidden';
+                window.addEventListener('touchmove', preventdefault, { passive: false})
                 flag = false;
             }
             if(Math.abs(y) > Math.abs(x) && flag) {
@@ -52,7 +52,7 @@ window.onload = () => {
                 toLeft.style.display = 'none';
             } else toLeft.style.display = '';
             document.ontouchmove = null;
-            document.body.style.overflow = '';
+            window.removeEventListener('touchmove', preventdefault, { passive: false})
         }
     })
 
@@ -119,4 +119,8 @@ swiper.addEventListener('mousedown', (event) => {
         return false;
     };
 })
+}
+
+function preventdefault(e) {
+    e.preventDefault();
 }
