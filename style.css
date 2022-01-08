@@ -225,6 +225,26 @@ body {
   color: white;
 }
 
+.num {
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  width: 44px;
+  left: calc(50% - 22px);
+  top: 10px;
+  padding: 3px;
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  font-size: 16px;
+  color: black;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 @media screen and (max-width: 850px) {
   .navbar {
     display: none;

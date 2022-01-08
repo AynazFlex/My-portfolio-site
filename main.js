@@ -3,7 +3,7 @@
 let k = 0;
 let carts = -document.body.querySelectorAll('.cart').length + 1;
 
-window.addEventListener('resize', function(){
+window.addEventListener('resize', function() {
     let w = swiper.querySelector('.cart').offsetWidth;
     list.style.left = w*k + 'px';
 });
@@ -18,7 +18,7 @@ window.onload = () => {
         let startY = event.changedTouches[0].clientY;
         let x;
         let y;
-        let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+        let shiftX = parseInt(list.style.left);
 
         document.ontouchmove = (event) => {
             x = event.changedTouches[0].clientX - startX;
@@ -51,15 +51,16 @@ window.onload = () => {
             if(k == 0) {
                 toLeft.style.display = 'none';
             } else toLeft.style.display = '';
+            window.removeEventListener('touchmove', preventdefault, { passive: false});
+            i.textContent = -k + 1;
             document.ontouchmove = null;
-            window.removeEventListener('touchmove', preventdefault, { passive: false})
         }
     })
 
 toLeft.onclick = () => {
     toRight.style.display = '';
     const w1 = swiper.querySelector('.cart').offsetWidth;
-    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    let shiftX = parseInt(list.style.left);
     if(shiftX < 0) {
         list.style.left = shiftX + w1 + 'px';
         k = parseInt(list.style.left)/w1;
@@ -67,13 +68,14 @@ toLeft.onclick = () => {
     if(k == 0) {
         toLeft.style.display = 'none';
     }
+    i.textContent = -k + 1;
 }
 
 toRight.onclick = () => {
     toLeft.style.display = '';
     const W2 = list.offsetWidth;
     const w2 = swiper.querySelector('.cart').offsetWidth;
-    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    let shiftX = parseInt(list.style.left);
     if(shiftX > -(W2-w2)) {
         list.style.left = shiftX - w2 + 'px';
         k = parseInt(list.style.left)/w2;
@@ -81,6 +83,7 @@ toRight.onclick = () => {
     if(k == carts) {
         toRight.style.display = 'none';
     }
+    i.textContent = -k + 1;
 }
 
 swiper.addEventListener('mousedown', (event) => {
@@ -89,7 +92,7 @@ swiper.addEventListener('mousedown', (event) => {
     list.style.transition = '0ms';
     let start = event.clientX;
     let x;
-    let shiftX = list.style.left ? parseInt(list.style.left) : 0;
+    let shiftX = parseInt(list.style.left);
     
     function mouseMove(event) {
         x = event.clientX - start;
@@ -113,6 +116,7 @@ swiper.addEventListener('mousedown', (event) => {
             toLeft.style.display = 'none';
         } else toLeft.style.display = '';
         document.removeEventListener('mousemove', mouseMove);
+        i.textContent = -k + 1;
         swiper.onmouseup = null;
     }
     swiper.ondragstart = function() {
