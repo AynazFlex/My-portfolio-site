@@ -186,7 +186,6 @@ body {
   display: none;
 }
 .swiper {
-  z-index: 0;
   display: block;
   position: relative;
   width: 500px;
@@ -366,7 +365,7 @@ body {
 @media screen and (max-width: 330px) {
   .swiper {
     width: 250px;
-    height: 450px;
+    height: 500px;
   }
 
   .cart {
